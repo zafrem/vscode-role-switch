@@ -1,0 +1,164 @@
+{
+  "name": "vscode-role-switch",
+  "displayName": "RoleSwitch",
+  "description": "Role-based task management with anti-micro-switching for VS Code",
+  "version": "0.1.0",
+  "publisher": "roleswitch",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other",
+    "Productivity"
+  ],
+  "keywords": [
+    "productivity",
+    "time tracking",
+    "role management",
+    "focus",
+    "task switching"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "roleSwitch.startRole",
+        "title": "Start Role Session",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.switchRole",
+        "title": "Switch Role",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.endSession",
+        "title": "End Current Session",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.openDashboard",
+        "title": "Open Dashboard",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.addSessionNote",
+        "title": "Add Session Note",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.openSettings",
+        "title": "Open Settings",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.createRole",
+        "title": "Create New Role",
+        "category": "RoleSwitch"
+      },
+      {
+        "command": "roleSwitch.exportData",
+        "title": "Export Data",
+        "category": "RoleSwitch"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "roleSwitchView",
+          "name": "RoleSwitch",
+          "when": "true"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "roleSwitch",
+          "title": "RoleSwitch",
+          "icon": "$(symbol-class)"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "RoleSwitch",
+      "properties": {
+        "roleSwitch.minimumSessionDuration": {
+          "type": "number",
+          "default": 300,
+          "minimum": 300,
+          "maximum": 3600,
+          "description": "Minimum session duration in seconds (5-60 minutes)"
+        },
+        "roleSwitch.transitionWindowDuration": {
+          "type": "number",
+          "default": 30,
+          "minimum": 30,
+          "maximum": 600,
+          "description": "Transition window duration in seconds (30-600 seconds)"
+        },
+        "roleSwitch.statusBarVisibility": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show RoleSwitch information in status bar"
+        },
+        "roleSwitch.panelAutoOpen": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically open panel when starting a session"
+        },
+        "roleSwitch.enableNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable RoleSwitch notifications"
+        },
+        "roleSwitch.autoSaveInterval": {
+          "type": "number",
+          "default": 30,
+          "minimum": 10,
+          "maximum": 300,
+          "description": "Auto-save interval in seconds"
+        },
+        "roleSwitch.globalRoles": {
+          "type": "array",
+          "default": [],
+          "description": "Global roles available across all workspaces"
+        },
+        "roleSwitch.workspaceRoles": {
+          "type": "array",
+          "default": [],
+          "description": "Workspace-specific roles"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir dist",
+    "watch-tests": "tsc -p . -w --outDir dist",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./dist/test/runTest.js",
+    "test-compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  }
+}

@@ -1,0 +1,124 @@
+/* VS Code Theme Integration */
+
+body {
+  color: var(--vscode-foreground);
+  background-color: var(--vscode-editor-background);
+  font-family: var(--vscode-font-family);
+  font-weight: var(--vscode-font-weight);
+  font-size: var(--vscode-font-size);
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--vscode-editor-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--vscode-scrollbarSlider-background);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--vscode-scrollbarSlider-hoverBackground);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--vscode-scrollbarSlider-activeBackground);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--vscode-editor-background);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--vscode-editor-selectionBackground);
+}
+
+/* Focus */
+*:focus {
+  outline: 1px solid var(--vscode-focusBorder);
+  outline-offset: -1px;
+}
+
+/* Links */
+a {
+  color: var(--vscode-textLink-foreground);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--vscode-textLink-activeForeground);
+}
+
+/* Code */
+code {
+  font-family: var(--vscode-editor-font-family);
+  font-size: var(--vscode-editor-font-size);
+  color: var(--vscode-textPreformat-foreground);
+  background-color: var(--vscode-textPreformat-background, var(--vscode-editor-background));
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 20px;
+}
+
+/* Buttons */
+button {
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+/* Inputs */
+input, textarea, select {
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid var(--vscode-widget-border);
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--vscode-editor-lineHighlightBackground);
+  font-weight: 600;
+}
+
+/* Utility classes */
+.text-muted {
+  color: var(--vscode-descriptionForeground);
+}
+
+.text-success {
+  color: var(--vscode-charts-green);
+}
+
+.text-warning {
+  color: var(--vscode-charts-orange);
+}
+
+.text-danger {
+  color: var(--vscode-errorForeground);
+}
+
+.text-info {
+  color: var(--vscode-charts-blue);
+}
